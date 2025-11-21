@@ -1,0 +1,20 @@
+name: wangdongsheng homepage
+on:
+  push:
+    branches: [master] # 监听 master 分支推送
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies and build
+        run: npm install && npm run build # 安装依赖并构建生成 dist
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./vue-premission/dist # 指定部署 dist 目录下的文件

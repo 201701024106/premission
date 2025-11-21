@@ -1,0 +1,8 @@
+{
+    "data": {
+        "token": "vip",
+        "username": "vip",
+        "premission": ["首页"]
+    },
+    "message": "登录成功"
+}
