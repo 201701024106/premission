@@ -34,7 +34,7 @@ const NotFound = {
 
 // 创建路由器
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.PAGE_BASE_URL),
   routes: routers,
 });
 

@@ -20,6 +20,8 @@ export default defineConfig(({ mode }) => {
     };
   }
   return {
+    // 重要：设置正确的 base 路径，必须与你的仓库名称匹配
+    base: env.PAGE_BASE_URL,
     plugins: [
       vue(),
       viteMockServe({
