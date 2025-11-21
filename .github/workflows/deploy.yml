@@ -19,8 +19,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'  # 可选：缓存依赖加速构建
-          cache-dependency-path: vue-premission/package-lock.json
+          # 移除所有缓存相关配置
       
       - name: Install dependencies and build
         working-directory: ./vue-premission
