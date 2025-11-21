@@ -11,6 +11,7 @@ import { dynamicRoutes } from "./dynamic-router";
 import { parseRouter } from "@/util/router";
 import usePremissionStore from "@/store/premission";
 import { getDisc } from "../hooks/useOwnLocalStorage";
+import { deepClone } from "@/util/index.ts";
 
 const routers = [
   {
@@ -91,13 +92,13 @@ router.beforeEach(
 
       if (premission && Array.isArray(premission)) {
         resetRouter();
-        // 解析路由
-        const filteredRoutes = parseRouter(premission, dynamicRoutes);
+          // 解析路由
+        const routesCopy = deepClone(dynamicRoutes);
+        const filteredRoutes = parseRouter(premission, routesCopy);
         // 添加路由并验证
         filteredRoutes.forEach((route: any) => {
           router.addRoute(route);
         });
-
         router.addRoute(NotFound);
         premissionStore.SET_MENU_LIST(filteredRoutes);
         // 标记已添加动态路由
