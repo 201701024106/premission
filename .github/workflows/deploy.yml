@@ -1,4 +1,4 @@
-name: wangdongsheng homepage
+name: wangdongsheng premission
 on:
   push:
     branches: [master] # 监听 master 分支推送
@@ -12,9 +12,10 @@ jobs:
         with:
           node-version: '20'
       - name: Install dependencies and build
-        run: npm install && npm run build # 安装依赖并构建生成 dist
+        working-directory: ./vue-premission
+        run: npm install && npm run build
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./vue-premission/dist # 指定部署 dist 目录下的文件
+          publish_dir: ./vue-premission/dist
