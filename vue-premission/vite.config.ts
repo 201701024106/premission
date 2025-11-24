@@ -31,6 +31,8 @@ export default defineConfig(({ mode }) => {
         prodEnabled: true,
         ignore: /^\_/,
         logger: true,
+        injectCode: "import { setUpProdMockServer } from './mockProdServer'; setUpProdMockServer();",
+        injectFile: resolve("./src/main.ts"),
       }),
     ],
     resolve: {
