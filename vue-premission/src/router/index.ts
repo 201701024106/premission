@@ -1,7 +1,7 @@
 // 引入路由器
 import {
   createRouter,
-  createWebHistory,
+  createWebHashHistory,
   type RouteLocationNormalized,
   type RouteLocationNormalizedLoaded,
 } from "vue-router";
@@ -34,7 +34,7 @@ const NotFound = {
 
 // 创建路由器
 const router = createRouter({
-  history: createWebHistory(import.meta.env.PAGE_BASE_URL),
+  history: createWebHashHistory(),
   routes: routers,
 });
 

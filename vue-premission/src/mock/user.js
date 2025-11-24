@@ -1,5 +1,5 @@
 import Mock from "mockjs";
-import { successCode } from "./index";
+import { successCode } from "./status";
 import { admin_login, vip_login,admin_premission,vip_premission } from "./db";
 // 定义模拟接口
 export default [
@@ -9,8 +9,6 @@ export default [
     method: "get",
     response: ({ query }) => {
         // 获取请求体参数
-        console.log(query);
-        
       const { username, password } = query;
       // 模拟登录校验
       if (username === "admin" && password === "123456") {

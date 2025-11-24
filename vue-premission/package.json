@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:pro": "vite build --mode production",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist"
   },
@@ -27,7 +28,7 @@
     "sass": "^1.94.2",
     "typescript": "~5.9.3",
     "vite": "^7.2.2",
-    "vite-plugin-mock": "^3.0.2",
+    "vite-plugin-mock": "^2.9.6",
     "vue-tsc": "^3.1.3"
   }
 }

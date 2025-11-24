@@ -6,6 +6,7 @@ import App from './App.vue';
 import { createPinia } from "pinia";
 import ElementPlus from "element-plus";
 import "element-plus/dist/index.css"
+import { setUpProdMockServer  } from "./mockProdServer.ts"
 // 创建app 根组件加载到 #app DOM 上
 const app = createApp(App)
 const pinia = createPinia();
@@ -16,7 +17,7 @@ app.use(router)
 // 安装自定义指令
 app.use(ElementPlus)
 app.mount('#app')
-
+setUpProdMockServer()
 type infoColor = 'success'|"error"|"warnning"|"info";
 
 type Lod = {

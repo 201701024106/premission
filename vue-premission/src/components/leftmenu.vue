@@ -1,5 +1,5 @@
 <template>
-    <div class="">
+    <div class="ti-leftmenu-container">
         <el-menu :default-active="defaultActive" v-bind="$attrs" :router="router" class="el-menu-vertical-demo">
             <template v-for="item in data">
                 <el-menu-item v-if="!item[childrenKey] || !item[childrenKey].length" :index="item[indexKey]"
@@ -63,9 +63,12 @@ const props = defineProps({
 </script>
 
 <style scoped lang="scss">
+.ti-leftmenu-container {
+    height: 100%;
+}
 .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 200px;
-    min-height: 400px;
+    height: 100%;
 }
 
 svg {
