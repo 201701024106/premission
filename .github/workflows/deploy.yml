@@ -6,11 +6,11 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # 改为 write（需要推送gh-pages分支）
+      contents: read
       pages: write
       id-token: write
     environment:
-      name: github-pages  # 必须指定，官方Pages部署要求
+      name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
@@ -19,7 +19,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          # 移除所有缓存相关配置
       
       - name: Install dependencies and build
         working-directory: ./vue-premission
@@ -28,13 +27,13 @@ jobs:
           npm run build
       
       - name: Setup Pages
-        uses: actions/configure-pages@v5  # 官方Pages配置步骤
+        uses: actions/configure-pages@v5
       
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3  # 上传构建产物
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./vue-premission/dist
       
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4  # 官方部署步骤（自动处理权限）
+        uses: actions/deploy-pages@v4
