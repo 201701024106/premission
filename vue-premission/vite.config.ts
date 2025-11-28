@@ -22,7 +22,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     // 部署基础路径：根据实际部署环境调整（根路径用 "/"，子路径用 "/premission/"）
-    base: env.VITE_BASE_URL || "/",
+    base: env.PAGE_BASE_URL || "/",
     plugins: [
       vue(),
       viteMockServe({
